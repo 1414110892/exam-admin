@@ -7,7 +7,7 @@
     <context id="msqlTables" targetRuntime="MyBatis3">
        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
          <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/examsys?serverTimezone=Asia/Shanghai"
-          driverClass="com.mysql.cj.jdbc.Driver" password="gaoming666" userId="root" >
+          driverClass="com.mysql.cj.jdbc.Driver" password="ycx" userId="root" >
 
          <property name="nullCatalogMeansCurrent" value="true"/>
          </jdbcConnection>
@@ -33,7 +33,25 @@
 <!--            <property name="useActualColumnNames" value="false"/>-->
 <!--        </table>-->
 
-        <table tableName="subject" domainObjectName="Subject"
+<!--        <table tableName="subject" domainObjectName="Subject"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false" >-->
+<!--            <property name="useActualColumnNames" value="false"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="question" domainObjectName="Question"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false" >-->
+<!--            <property name="useActualColumnNames" value="false"/>-->
+<!--        </table>-->
+
+        <table tableName="text_content" domainObjectName="textContent"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+        <table tableName="text_item" domainObjectName="textItem"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="false"/>

@@ -1,8 +1,5 @@
 package com.ycx.Exam.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-
 import java.io.Serializable;
 
 public class Subject implements Serializable {
@@ -12,7 +9,7 @@ public class Subject implements Serializable {
      *
      * @mbggenerated Wed Feb 15 13:19:47 CST 2023
      */
-    @JsonSerialize(using = ToStringSerializer.class)
+//    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**

@@ -75,12 +75,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         String md5Pwd = MD5Util.getMD5(user.getPassword());
         user.setPassword(md5Pwd);
-        //从线程池中获取当前的用户的userNo，再通过userNo查询id
-//        String currentNo = BaseContext.getCurrentNo();
-//        LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper();
-//        lambdaQueryWrapper.eq(User::getUserNo,currentNo);
-//        User one = this.getOne(lambdaQueryWrapper);
-//        user.setCreateUser(one.getId());
 
         user.setRole(1);
         boolean save = this.save(user);
@@ -98,6 +92,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         boolean update = this.updateById(user);
         if(!update){
+            throw new UserException("修改失败");
+        }
+        return true;
+    }
+
+    @Override
+    public Boolean userEditStatus(Long id) {
+        User user = this.getById(id);
+        int status = user.getStatus();
+        if(status == 0){
+            user.setStatus(1);
+        }else{
+            user.setStatus(0);
+        }
+        boolean b = this.updateById(user);
+        if(!b){
             throw new UserException("修改失败");
         }
         return true;

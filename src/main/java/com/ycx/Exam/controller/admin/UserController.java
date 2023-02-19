@@ -1,7 +1,8 @@
-package com.ycx.Exam.controller;
+package com.ycx.Exam.controller.admin;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ycx.Exam.Exception.UserException;
 import com.ycx.Exam.common.R;
 import com.ycx.Exam.entity.User;
 import com.ycx.Exam.service.UserService;
@@ -92,4 +93,22 @@ public class UserController {
         userService.userUpdate(user);
         return R.success("修改成功");
     }
+
+
+    @DeleteMapping("/delete/{id}")
+    public R<String> delete(@PathVariable Long id){
+        boolean b = userService.removeById(id);
+        if(!b){
+            throw new UserException("删除失败");
+        }
+        return R.success("删除成功");
+    }
+
+    @GetMapping("/editStatus/{id}")
+    public R<String> editStatus(@PathVariable Long id){
+
+        userService.userEditStatus(id);
+        return R.success("修改成功");
+    }
+
 }

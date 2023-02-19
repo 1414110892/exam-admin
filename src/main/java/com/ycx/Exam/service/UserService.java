@@ -16,4 +16,6 @@ public interface UserService extends IService<User> {
     Boolean userSave(User user);
 
     Boolean userUpdate(User user);
+
+    Boolean userEditStatus(Long id);
 }
