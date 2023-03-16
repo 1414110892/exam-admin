@@ -11,6 +11,6 @@ import lombok.Data;
 @Data
 public class QuestionPageRequestDto extends BasePage {
     private Integer level;
-    private Integer subject;
+    private Long subject;
     private Integer questionType;
 }

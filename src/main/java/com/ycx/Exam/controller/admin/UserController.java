@@ -72,7 +72,7 @@ public class UserController {
         lambdaQueryWrapper.eq(User::getRole,1);
         lambdaQueryWrapper.orderByDesc(User::getModifyTime);
 
-        userService.page(page1,lambdaQueryWrapper);
+        userService.page(page1,lambdaQueryWrapper); 
         List<User> records = page1.getRecords();
         for (User record : records) {
             record.setPassword("");
